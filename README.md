@@ -4,22 +4,26 @@
 # LOCAL HOSTING
    Install & Initialize the [Cloud SDK](https://cloud.google.com/sdk/docs)
 
-   TERMINAL
+   TERMINAL / COMMAND
 
    Login to Google Account:
    ```bash
    gcloud auth application-default login
    ```
 
-   Create an isolated Python environment in a directory external to your project and activate it:
+  In a path OUTSIDE of your project directory, copy and paste:
    ```bash
    python3 -m venv env
    source env/bin/activate
    ```
 
-   Navigate to your project directory and install dependencies:
+   Navigate to your project directory (change YOUR_PATH to your file directory):
    ```bash
    cd YOUR_PATH
+   ```
+
+   Install dependencies:
+   ```bash
    pip install  -r requirements.txt
    ```
 
@@ -29,16 +33,23 @@
    ```
 
    BROWSER
+
    Open the website:
    http://localhost:8080
 
 # DEPLOYING UPDATES TO FIREBASE APP ENGINE
-   TERMINAL
+   TERMINAL / COMMAND
+
+   Navigate to your project directory (change YOUR_PATH to your file directory):
+   ```bash
+   cd YOUR_PATH
+   ```
+
    Login to Google Account:
    ```bash
    gcloud auth application-default login
    ```
-   
+
    Send to App Engine:
    ```bash
    gcloud app deploy

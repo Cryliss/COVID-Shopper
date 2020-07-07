@@ -51,11 +51,13 @@ window.addEventListener('load', function () {
   });
 });
 
+
 let chartTitle = document.getElementById('chart-title')
 let chartAddress = document.getElementById('chart-address')
 let chartPhone = document.getElementById('chart-phone')
 let chartRating = document.getElementById('chart-rating')
 let chartReviews = document.getElementById('chart-reviews')
+
 
 let time = [
   ['Move', 'Percentage'],
@@ -84,6 +86,7 @@ let time = [
     ["10 pm", 3],
     ["11 pm", 10]
 ]
+
 
 function initMap() {
   var map = new google.maps.Map(document.getElementById("map"), {
@@ -139,8 +142,8 @@ function initMap() {
     infowindowContent.children["place-id"].textContent = place.place_id;
 
 
-   /* const request = new XMLHttpRequest();
-    request.open("GET", `covid-shopper.wl.r.appspot.com/getPopularity?placeid=${place.place_id}`);
+    /*const request = new XMLHttpRequest();
+    request.open("GET", `https://covid-shopper.wl.r.appspot.com/getPopularity?placeid=${place.place_id}`);
     request.send();
     request.onload = () => {
       var data = JSON.parse(request.response)['Response']
@@ -155,11 +158,12 @@ function initMap() {
       chartReviews.innerHTML = `Reviews: ${data['rating_n']}`
 
       drawStuff()
-    }
-    infowindow.open(map, marker);
-});*/
-}
+   }*/
 
+
+    infowindow.open(map, marker);
+  });
+}
 
 function drawStuff() {
   var data = new google.visualization.arrayToDataTable(time);

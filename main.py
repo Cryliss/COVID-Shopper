@@ -1,8 +1,11 @@
+import json
 import datetime
-from flask import Flask, render_template, request
+
+from flask import Flask, render_template, request, make_response
 from google.auth.transport import requests
 from google.cloud import datastore
 import google.oauth2.id_token
+import lib.livepopulartimes
 
 firebase_request_adapter = requests.Request()
 
@@ -10,14 +13,17 @@ datastore_client = datastore.Client()
 
 app = Flask(__name__)
 
+def return_json(arg):
+    resp = make_response(json.dumps( arg, sort_keys = True, indent=4 ))
+    resp.headers['Content-type'] = "application/json"
+    return resp
+
 def store_time(email, dt):
     entity = datastore.Entity(key=datastore_client.key('User', email, 'visit'))
     entity.update({
         'timestamp': dt
     })
-
     datastore_client.put(entity)
-
 
 def fetch_times(email, limit):
     ancestor = datastore_client.key('User', email)
@@ -28,6 +34,19 @@ def fetch_times(email, limit):
 
     return times
 
+@app.route('/getPopularity' ,methods=['POST','GET'])
+def getPopularity():
+    placeID = None
+
+    placeID = request.values.get('placeid',None)
+    if placeID is None:
+        res = {constants.ERROR:1, constants.MESSAGE:'getPopularity Failed: Place Idenification Missing. Provide a property named placeid'}
+        return helper.return_json(res)
+
+    popularTimes = livepopulartimes.get_populartimes_by_PlaceID(placeID)
+
+    res = {constants.SUCCESS:1, constants.RESPONSE: popularTimes}
+    return helper.return_json(res)
 
 @app.route('/')
 def root():
