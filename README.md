@@ -35,10 +35,16 @@
 # DEPLOYING UPDATES TO FIREBASE APP ENGINE
    TERMINAL
    Login to Google Account:
-      gcloud auth application-default login
-
+   ```bash
+   gcloud auth application-default login
+   ```
+   
    Send to App Engine:
-      gcloud app deploy
+   ```bash
+   gcloud app deploy
+   ```
 
    Run the App:
-      gcloud app browse
+   ```bash
+   gcloud app browse
+   ```
