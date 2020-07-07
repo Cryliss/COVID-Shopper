@@ -44,11 +44,6 @@
    ```bash
    cd YOUR_PATH
    ```
-
-   Install dependencies:
-   ```bash
-   pip install  -r requirements.txt
-   ```
    
    Login to Google Account:
    ```bash
