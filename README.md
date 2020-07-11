@@ -9,10 +9,10 @@ Something to note when testing -
   2. Go to 'sources' tab
   
   3. Quickly skim the script.js and ensure it matches your current file. 
-    
-  3a. If it does not, clear your browsing data in your browser settings.
   
-  3b. Re-inistialize your isolated Python environment
+  4. If it does not, clear your browsing data in your browser settings.
+  
+  5. Re-inistialize your isolated Python environment
   
 
 ## MAC -- TERMINAL 
