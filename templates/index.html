@@ -59,6 +59,7 @@
 
          <div></div>
 
+      <!-- Google Maps Section -->
       <div class="container">
         <div class="row">
           <div class="col">
@@ -74,8 +75,12 @@
               <div id="map"></div>
               <div id="infowindow-content">
                 <span id="place-name" class="title"></span><br />
-                <strong>Place ID:</strong> <span id="place-id"></span><br />
-                <strong>Currently </strong> <span id="current-popularity"></span><strong> %busy.</strong><br />
+                <strong>Currently </strong> <span id="current-popularity"></span><strong> % busy</strong><br />
+                <strong>Requiring masks: </strong> <span id="masks"></span><br />
+                <strong>Limiting entry: </strong> <span id="limited-entry"></span><br />
+                <strong>Closes early for cleaning: </strong> <span id="early-close"></span><br />
+                <strong>Opens early for at risk individuals: </strong> <span id="has-early"></span><br />
+                <strong>Offering delivery: </strong> <span id="delivery"></span><br />
               </div>
             </div>
           </div>
@@ -83,14 +88,90 @@
             <div class="container">
               <h1 class="describe" id="chart-title"></h1>
               <h4 class="describe" id="chart-address"></h4>
-              <h4 class="describe" id="chart-phone"></h4>
-              <h4 class="describe" id="chart-rating"></h4>
-              <h4 class="describe" id="chart-reviews"></h4>
+              <h4 class="describe" id="chart-phone"></h4><br />
+              <h2 class="describe" id="chart-desc">Store Popular Times:</h2>
               <div id="top_x_div"></div>
             </div>
           </div>
-        </div>
+       </div>
       </div>
+
+      <div class="container">
+         <div class="row">
+           <div class="col">
+             <div class="container">
+               <h1>Alternative Locations</h1>
+               <br />
+               <table>
+                 <caption>Recommendations Table</caption>
+                 <tr>
+                   <th>Place</th>
+                   <th>Address</th>
+                   <th>% busy</th>
+                   <th>Masks</th>
+                   <th>Limited Entry</th>
+                   <th>Closing Early</th>
+                   <th>Opening Early</th>
+                   <th>Delivery</th>
+                 </tr>
+                 <tr id="alt-1">
+                   <td id="name-1"></td>
+                   <td id="address-1"></td>
+                   <td id="live-1"></td>
+                   <td id="masks-1"></td>
+                   <td id="lim-entry-1"></td>
+                   <td id="close-early-1"></td>
+                   <td id="open-early-1"></td>
+                   <td id="delivery-1"></td>
+                 </tr>
+                 <tr id="alt-2">
+                   <td id="name-2"></td>
+                   <td id="address-2"></td>
+                   <td id="live-2"></td>
+                   <td id="masks-2"></td>
+                   <td id="lim-entry-2"></td>
+                   <td id="close-early-2"></td>
+                   <td id="open-early-2"></td>
+                   <td id="delivery-2"></td>
+                 </tr>
+                <tr id="alt-3">
+                   <td id="name-3"></td>
+                   <td id="address-3"></td>
+                   <td id="live-3"></td>
+                   <td id="masks-3"></td>
+                   <td id="lim-entry-3"></td>
+                   <td id="close-early-3"></td>
+                   <td id="open-early-3"></td>
+                   <td id="delivery-3"></td>
+                 </tr>
+                <tr id="alt-4">
+                   <td id="name-4"></td>
+                   <td id="address-4"></td>
+                   <td id="live-4"></td>
+                   <td id="masks-4"></td>
+                   <td id="lim-entry-4"></td>
+                   <td id="close-early-4"></td>
+                   <td id="open-early-4"></td>
+                   <td id="delivery-4"></td>
+                 </tr>
+                <tr id="alt-5">
+                   <td id="name-5"></td>
+                   <td id="address-5"></td>
+                   <td id="live-5"></td>
+                   <td id="masks-5"></td>
+                   <td id="lim-entry-5"></td>
+                   <td id="close-early-5"></td>
+                   <td id="open-early-5"></td>
+                   <td id="delivery-5"></td>
+                 </tr>
+              </table>
+            </div>
+         </div>
+      </div>
+
+
+
+
 
       <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
       <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBMZ6xYlzyjMEZTWiXWF7F6KlvOI-rvWm0&libraries=places&callback=initMap"
@@ -100,7 +181,7 @@
      <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
      <script type="text/javascript">
         google.charts.load('current', {'packages':['bar']});
-        google.charts.setOnLoadCallback(drawStuff);
+        google.charts.setOnLoadCallback(updateGraph);
      </script>
 
          <!-- Optional JavaScript -->

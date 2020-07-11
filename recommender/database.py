@@ -1,13 +1,16 @@
 import pandas as pd
 
-# Class for opening the database csv file and searching it
-
+# Open the CSV file and search it for the given plus_code
+# Return the results if found
 def database(plus_code):
     data = pd.read_csv('recommender/data/places.csv', index_col=0)
     return search(data, plus_code)
 
+# Perform a search on the database
+# If found, parse the results and return them
 def search(data, plus_code):
     print('Performing Database search ...')
+
     codes = data['plus_code'].values
     for index in range(len(codes)):
         if str(codes[index]) == plus_code:

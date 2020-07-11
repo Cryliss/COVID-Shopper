@@ -6,3 +6,5 @@ SUCCESS = 'Success'
 RESPONSE = 'Response'
 
 PLACEID_SAMPLE = 'ChIJI25WUN2VwoAREUvf8-l0huA'
+
+TYPE = 'supermarket'
