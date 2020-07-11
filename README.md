@@ -4,13 +4,15 @@ Project for COMP 380 - A website that shows the user the COVID precautions and c
 # INSTRUCTIONS FOR LOCAL HOSTING
 Something to note when testing - 
   
-  1. Right click + inspect element
+  1. Right click, select 'inspect'
   
   2. Go to 'sources' tab
   
   3. Quickly skim the script.js and ensure it matches your current file. 
     
-    3a. If it does not, clear your browing data in your browser settings.  
+  3a. If it does not, clear your browsing data in your browser settings.
+  
+  3b. Re-inistialize your isolated Python environment
   
 
 ## MAC -- TERMINAL 
