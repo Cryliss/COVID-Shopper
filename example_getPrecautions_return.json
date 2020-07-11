@@ -1,0 +1,8 @@
+{
+   "masks":"True" ,
+   "delivery":"False",
+    "early_close":"True",
+    "has_early":"True" ,
+   "limited_entry":"True",
+   "subtype":"natural, specialty" 
+}

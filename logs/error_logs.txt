@@ -1,0 +1,67 @@
+Test results from trying to recreate the error in location parsing --
+      "127.0.0.1 - - [11/Jul/2020 13:37:15] "GET /static/banner.mp4 HTTP/1.1" 206 -
+      Hello u are in recommendations
+#      (34.08947990000001, -118.148483)         #
+#      34.089479,-00001, -118                   #
+      Hello u are in precautions
+      3VQ2 QJ Alhambra, CA, United States
+      Performing Database search ...
+      None
+      127.0.0.1 - - [11/Jul/2020 13:37:23] "GET /getPrecautions?pluscode=3VQ2+QJ%20Alhambra,%20CA,%20United%20States HTTP/1.1" 200 -
+      127.0.0.1 - - [11/Jul/2020 13:37:23] "GET /getRecommendations?loc=(34.08947990000001,%20-118.148483) HTTP/1.1" 500 -
+      Traceback (most recent call last):
+        File "/Users/sabra/env/lib/python3.7/site-packages/flask/app.py", line 2464, in __call__
+          return self.wsgi_app(environ, start_response)
+        File "/Users/sabra/env/lib/python3.7/site-packages/flask/app.py", line 2450, in wsgi_app
+          response = self.handle_exception(e)
+        File "/Users/sabra/env/lib/python3.7/site-packages/flask/app.py", line 1867, in handle_exception
+          reraise(exc_type, exc_value, tb)
+        File "/Users/sabra/env/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
+          raise value
+        File "/Users/sabra/env/lib/python3.7/site-packages/flask/app.py", line 2447, in wsgi_app
+          response = self.full_dispatch_request()
+        File "/Users/sabra/env/lib/python3.7/site-packages/flask/app.py", line 1952, in full_dispatch_request
+          rv = self.handle_user_exception(e)
+        File "/Users/sabra/env/lib/python3.7/site-packages/flask/app.py", line 1821, in handle_user_exception
+          reraise(exc_type, exc_value, tb)
+        File "/Users/sabra/env/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
+          raise value
+        File "/Users/sabra/env/lib/python3.7/site-packages/flask/app.py", line 1950, in full_dispatch_request
+          rv = self.dispatch_request()
+        File "/Users/sabra/env/lib/python3.7/site-packages/flask/app.py", line 1936, in dispatch_request
+          return self.view_functions[rule.endpoint](**req.view_args)
+        File "/Users/sabra/Documents/GitHub/COVID-Shopper/main.py", line 83, in getRecommendations
+          alts = recommending.getRecommendations(loc_str)
+        File "/Users/sabra/Documents/GitHub/COVID-Shopper/recommending.py", line 10, in getRecommendations
+          places = recommender.getRecommendations(loc, constants.TYPE, constants.GOOGLE_API_KEY)
+        File "/Users/sabra/Documents/GitHub/COVID-Shopper/recommender/__init__.py", line 12, in getRecommendations
+          return nearbysearch(loc, type, apikey)
+        File "/Users/sabra/Documents/GitHub/COVID-Shopper/recommender/nearbysearch.py", line 10, in nearbysearch
+          return search_nearby(api_url, loc, radius, type, apikey)
+        File "/Users/sabra/Documents/GitHub/COVID-Shopper/recommender/nearbysearch.py", line 29, in search_nearby
+          api_response = request_api(search_url)
+        File "/Users/sabra/Documents/GitHub/COVID-Shopper/recommender/nearbysearch.py", line 14, in request_api
+          response = url_req.urlopen(url)
+        File "/Users/sabra/anaconda3/lib/python3.7/urllib/request.py", line 222, in urlopen
+          return opener.open(url, data, timeout)
+        File "/Users/sabra/anaconda3/lib/python3.7/urllib/request.py", line 525, in open
+          response = self._open(req, data)
+        File "/Users/sabra/anaconda3/lib/python3.7/urllib/request.py", line 543, in _open
+          '_open', req)
+        File "/Users/sabra/anaconda3/lib/python3.7/urllib/request.py", line 503, in _call_chain
+          result = func(*args)
+        File "/Users/sabra/anaconda3/lib/python3.7/urllib/request.py", line 1362, in https_open
+          context=self._context, check_hostname=self._check_hostname)
+        File "/Users/sabra/anaconda3/lib/python3.7/urllib/request.py", line 1319, in do_open
+          encode_chunked=req.has_header('Transfer-encoding'))
+        File "/Users/sabra/anaconda3/lib/python3.7/http/client.py", line 1252, in request
+          self._send_request(method, url, body, headers, encode_chunked)
+        File "/Users/sabra/anaconda3/lib/python3.7/http/client.py", line 1263, in _send_request
+          self.putrequest(method, url, **skips)
+        File "/Users/sabra/anaconda3/lib/python3.7/http/client.py", line 1114, in putrequest
+          self._validate_path(url)
+        File "/Users/sabra/anaconda3/lib/python3.7/http/client.py", line 1205, in _validate_path
+          raise InvalidURL(f"URL can't contain control characters. {url!r} "
+      http.client.InvalidURL: URL can't contain control characters. '/maps/api/place/nearbysearch/json?location=34.089479,-00001, -118&radius=5000
+                                                                     &type=supermarket&key=AIzaSyBMZ6xYlzyjMEZTWiXWF7F6KlvOI-rvWm0' (found at least ' ')
+      127.0.0.1 - - [11/Jul/2020 13:37:24] "GET /getPopularity?placeid=ChIJC_Zk3ALFwoARKajdsjsnn-w HTTP/1.1" 200 -
