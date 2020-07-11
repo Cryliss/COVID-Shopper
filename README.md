@@ -2,6 +2,16 @@
 Project for COMP 380 - A website that shows the user the COVID precautions and current busyness of a grocery store / market that they search for, as well as a list of recommended alternatives.
 
 # INSTRUCTIONS FOR LOCAL HOSTING
+Something to note when testing - 
+  
+  1. Right click + inspect element
+  
+  2. Go to 'sources' tab
+  
+  3. Quickly skim the script.js and ensure it matches your current file. 
+    
+    3a. If it does not, clear your browing data in your browser settings.  
+  
 
 ## MAC -- TERMINAL 
 1. Create an isolated Python environment in a directory external to your project and activate it:
