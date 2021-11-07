@@ -27,6 +27,7 @@ Something to note when testing -
 
   ```bash
   cd YOUR_PROJECT_PATH
+  pip install -r requirements.txt
   ```
   
 3. Run the application:
@@ -38,7 +39,7 @@ Something to note when testing -
 4. In your web browser, enter the following address:
 
   ```bash
-  http://127.0.0.1:8080
+  http://127.0.0.1:5555
   ```
 
 ## PC -- COMMAND LINE
@@ -71,5 +72,5 @@ Something to note when testing -
 6. In your web browser, enter the following address:
 
   ```bash
-  http://127.0.0.1:8080
+  http://127.0.0.1:5555
   ```
