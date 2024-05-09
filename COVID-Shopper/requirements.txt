@@ -5,7 +5,7 @@ Flask==1.1.2
 geographiclib==1.50
 idna==2.10
 itsdangerous==1.1.0
-Jinja2==2.11.2
+Jinja2==3.1.4
 MarkupSafe==1.1.1
 requests==2.24.0
 urllib3==1.25.9
